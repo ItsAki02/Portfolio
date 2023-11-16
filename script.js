@@ -37,3 +37,18 @@ contactMeBtn.onclick = () => {
         },(index + 1) * 200 + 100)
     })
 }
+
+//create reverse index button
+let totalPages = pages.length;
+let pageNo = 0;
+
+function reverseIndex() {
+    pageNo--;
+    if(pageNo < 0){
+        pageNo = totalPages - 1;
+    }
+}
+
+//back profile button when click
+
+const backProfileBtn = document.querySelector('')
