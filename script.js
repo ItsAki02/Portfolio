@@ -22,7 +22,7 @@ pageTurnBtn.forEach((el,index) => {
     }
 })
 
-// contact me button when click
+//contact me button when click
 
 const pages = document.querySelectorAll('.book-page.page-right');
 const contactMeBtn = document.querySelector('.btn.contact');
@@ -31,38 +31,9 @@ contactMeBtn.onclick = () => {
     pages.forEach((page,index) => {
         setTimeout(() => {
             page.classList.add('turn');
-
             setTimeout(() => {
-                pages.style.zIndex = 20 + index;
-            }, 500);
+                page.style.zIndex = 20 + index;
+            }, 500)
         },(index + 1) * 200 + 100)
-    })
-}
-
-//create reverse index function
-let totalPages = pages.length;
-let pageNo = 0;
-
-function reverseIndex() {
-    pageNo--;
-    if(pageNo < 0){
-        pageNo = totalPages - 1;
-    }
-}
-
-//back profile button when click
-const backProfileButton = document.querySelector('.back-profile');
-
-backProfileButton.onclick = () => {
-    pages.forEach((_,index) => {
-        setTimeout(() => {
-            reverseIndex();
-            pages[pageNo].classList.remove('turn');
-
-            setTimeout(() => {
-                reverseIndex();
-                pages[pageNo].style.zIndex = 10 + index;
-            })
-        },(index + 1)* 200 + 100)
     })
 }
