@@ -44,11 +44,25 @@ let pageNo = 0;
 
 function reverseIndex() {
     pageNo--;
-    if(pageNo < 0){
+    if (pageNo < 0){
         pageNo = totalPages - 1;
     }
 }
 
 //back profile button when click
 
-const backProfileBtn = document.querySelector('')
+const backProfileBtn = document.querySelector('.back-profile');
+
+backProfileBtn.onclick = () => {
+    pages.forEach((_, index) => { 
+        setTimeout(() => {
+            reverseIndex();
+            pages[pageNo].classList.remove('turn');
+
+            setTimeout(() => {
+                reverseIndex();
+                pages[pageNo].style.zIndex = 10 + index;
+            });
+        }, (index + 1) * 200 + 100);
+    });
+};
